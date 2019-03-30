@@ -13,12 +13,12 @@ class TestSpec extends AsyncWordSpec {
   "A task" should {
     "execute fine" in {
 		(for {
-        _ <- task.map(println)
+        _ <- task
 		} yield succeed).runToFuture
     }
     "execute fine when delayed" in {
 		(for {
-        _ <- task.delayExecution(200.millis).map(println)
+        _ <- task.delayExecution(200.millis)
 		} yield succeed).runToFuture
 	}
   }
