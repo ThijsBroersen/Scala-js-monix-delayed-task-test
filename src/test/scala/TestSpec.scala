@@ -8,6 +8,7 @@ import scala.concurrent.duration._
 
 class TestSpec extends AsyncWordSpec {
   implicit val ec = Scheduler.trampoline(executionModel = AlwaysAsyncExecution)
+  override def executionContext = ec
   val task = Task(1)
 
   "A task" should {
